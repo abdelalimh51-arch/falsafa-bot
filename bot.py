@@ -27,7 +27,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def setmessage(update: Update, context: ContextTypes.DEFAULT_TYPE):
     global admin_message
     if update.effective_user.id == ADMIN_ID:
-        admin_message = " ".join(context.args)
+       admin_message = "📝 برافو! دابا اكتب ملخصك وارسله في الجروب!"
         await update.message.reply_text(f"✅ الرسالة تبدلت:\n{admin_message}")
 
 async def sendvideo(update: Update, context: ContextTypes.DEFAULT_TYPE):
