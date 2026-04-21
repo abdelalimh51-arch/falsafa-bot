@@ -1,7 +1,7 @@
 import asyncio
 from telegram import Bot
 
-TOKEN = "8046169927:AAGS9sHzCaBfHRTyQhjClG1l8F6iWHLL0c4"
+TOKEN = "8046169927:AAHIUWTllO-LNUtehCjJwx9P3fU4UFrwnpo"
 CHAT_ID = "-5151491349"
 
 VIDEOS = [
