@@ -1,5 +1,5 @@
 import asyncio
-from telegram import Bot
+from telegram import Bot, InlineKeyboardButton, InlineKeyboardMarkup
 
 TOKEN = "8046169927:AAHIUWTllO-LNUtehCjJwx9P3fU4UFrwnpo"
 CHAT_ID = "-1003928019134"
@@ -18,7 +18,19 @@ VIDEOS = [
 async def send_video():
     bot = Bot(TOKEN)
     video = VIDEOS[0]
+    
+    # إرسال الفيديو
     await bot.send_message(chat_id=CHAT_ID, text=f"🎬 فيديو هذا الأسبوع:\n{video}")
-    await bot.send_message(chat_id=CHAT_ID, text="📝 بعد ما تشوفو الفيديو، ارسلو مقالتكم هنا!")
+    
+    # تصويت
+    keyboard = InlineKeyboardMarkup([
+        [InlineKeyboardButton("✅ تفرجت وكتبت الملخص", callback_data="done")],
+        [InlineKeyboardButton("⏳ مزال ما تفرجتش", callback_data="not_yet")]
+    ])
+    await bot.send_message(
+        chat_id=CHAT_ID,
+        text="📝 بعد ما تتفرج على الفيديو، اكتب ملخصك وارسله هنا!\n\nواش تفرجت؟",
+        reply_markup=keyboard
+    )
 
 asyncio.run(send_video())
